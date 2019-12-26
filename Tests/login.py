@@ -3,6 +3,9 @@ import time
 import unittest
 
 from config import getDriverDir
+from Pages.homePage import homePage
+from Pages.searchResultPage import SearchResultPage
+from Pages.videoDisplayPage import VideoDisplayPage
 
 
 class SortTests(unittest.TestCase):
@@ -14,21 +17,32 @@ class SortTests(unittest.TestCase):
         options.add_argument('window-size=2560,1440')
         self.driver = webdriver.Chrome(executable_path=getDriverDir(), options=options)
 
+    def test_OpenVideo(self, ):
+        driver = self.driver
 
-    def test_OpenVideo(self,):
-        self.driver.get('https://www.youtube.com/')
-        self.driver.find_element_by_id("search").send_keys("lovely turkey place")
-        self.driver.find_element_by_id("search-icon-legacy").click()
-        time.sleep(2)
-        self.driver.find_element_by_partial_link_text("10 Best Places to Visit in Turkey").click()
+        driver.get('https://www.youtube.com/')
+
+        home = homePage(driver)
+        home.enter_textinhome("lovely turkey place")
+        home.tap_searchicon()
         time.sleep(4)
-        self.driver.find_element_by_id("label-icon").click()
-        time.sleep(2)
-        self.driver.find_element_by_partial_link_text("Top comments").click()
-        time.sleep(2)
+
+        srp = SearchResultPage(driver)
+        srp.select_video()
+        time.sleep(4)
+
+        vdp = VideoDisplayPage(driver)
+        vdp.select_labelicon()
+        vdp.select_sorttopcomment
+        time.sleep(4)
+
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()
         cls.driver.quit()
         print("Test Completed")
+
+
+#if __name__ == '__main':
+    #unittest.main()
