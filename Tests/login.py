@@ -19,7 +19,6 @@ class SortTests(unittest.TestCase):
 
     def test_OpenVideo(self, ):
         driver = self.driver
-
         driver.get('https://www.youtube.com/')
 
         home = homePage(driver)
@@ -42,7 +41,3 @@ class SortTests(unittest.TestCase):
         cls.driver.close()
         cls.driver.quit()
         print("Test Completed")
-
-
-#if __name__ == '__main':
-    #unittest.main()
