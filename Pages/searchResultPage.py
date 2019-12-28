@@ -1,5 +1,7 @@
 import time
 
+from selenium.webdriver.support import wait
+
 
 class SearchResultPage:
 

@@ -1,3 +1,6 @@
+from selenium.webdriver.support import wait
+
+
 class homePage():
 
     def __init__(self, driver):
@@ -13,4 +16,5 @@ class homePage():
 
 
     def tap_searchicon(self):
-     self.driver.find_element_by_id(self.search_icon_id).click()
+        self.driver.find_element_by_id(self.search_icon_id).click()
+
