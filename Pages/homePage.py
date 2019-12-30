@@ -1,6 +1,3 @@
-from selenium.webdriver.support import wait
-
-
 class homePage():
 
     def __init__(self, driver):
