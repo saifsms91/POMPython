@@ -1,5 +1,4 @@
 from selenium import webdriver
-import time
 import unittest
 import sys
 import os
@@ -15,7 +14,6 @@ class SortTests(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         options = webdriver.ChromeOptions()
-
         options.add_argument("--start-maximized")
         options.add_argument('window-size=2560,1440')
         self.driver = webdriver.Chrome(executable_path=getDriverDir(), options=options)
