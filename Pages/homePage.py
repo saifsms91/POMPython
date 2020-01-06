@@ -11,4 +11,3 @@ class homePage():
 
     def tap_searchicon(self):
         self.driver.find_element_by_id(self.search_icon_id).click()
-
